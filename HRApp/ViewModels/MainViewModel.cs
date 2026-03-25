@@ -1,28 +1,29 @@
-﻿using System.ComponentModel;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace HRApp.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public partial class MainViewModel : ObservableObject
     {
-        string text;
-        public string Text 
-        {
-            get
-            {
-                return text;
-            }
-            set
-            {
-                text = value;
-                OnPropertyChanged(nameof(Text));
-            }
-        }
+        [ObservableProperty]
+        public partial string Text { get; set; }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
+        [ObservableProperty]
+        public partial ObservableCollection<string> Items { get; set; } = new ObservableCollection<string>();
 
-        void OnPropertyChanged(string name)
+        [RelayCommand]
+        public async Task Add()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            if (string.IsNullOrEmpty(Text))
+            {
+                return;
+            }
+
+            Items.Add(Text);
+
+            Text = string.Empty;
         }
     }
 }
