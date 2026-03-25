@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HRApp.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace HRApp
 {
@@ -15,6 +16,8 @@ namespace HRApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<MainPage>();
+            builder.Services.AddSingleton<MainViewModel>();
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

@@ -1,11 +1,13 @@
-﻿namespace HRApp
+﻿using HRApp.ViewModels;
+
+namespace HRApp
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        public MainPage(MainViewModel vm)
         {
             InitializeComponent();
-            BindingContext = new ViewModels.MainViewModel();
+            BindingContext = vm;
         }
     }
 }
