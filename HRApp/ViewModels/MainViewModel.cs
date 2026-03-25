@@ -25,5 +25,14 @@ namespace HRApp.ViewModels
 
             Text = string.Empty;
         }
+
+        [RelayCommand]
+        public void Delete(string s)
+        {
+            if(Items.Contains(s))
+            {
+                Items.Remove(s);
+            }
+        }
     }
 }
