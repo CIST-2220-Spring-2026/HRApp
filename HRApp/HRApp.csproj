@@ -75,4 +75,10 @@
 	  <Folder Include="Models\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="DetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

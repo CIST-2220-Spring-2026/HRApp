@@ -34,5 +34,11 @@ namespace HRApp.ViewModels
                 Items.Remove(s);
             }
         }
+
+        [RelayCommand]
+        public async Task Tap(string s)
+        {
+            await Shell.Current.GoToAsync($"{nameof(DetailPage)}?Text={s}");
+        }
     }
 }
